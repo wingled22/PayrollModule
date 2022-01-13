@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PayrollModelStoreContainer" CdmEntityContainer="PayrollEntities">
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="PayrollModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Payrolls">
+      <EntityTypeMapping TypeName="PayrollModel.Payroll">
+        <MappingFragment StoreEntitySet="Payroll">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Employee" ColumnName="Employee" />
+          <ScalarProperty Name="PayrollPeriod" ColumnName="PayrollPeriod" />
+          <ScalarProperty Name="OTHours" ColumnName="OTHours" />
+          <ScalarProperty Name="OTPay" ColumnName="OTPay" />
+          <ScalarProperty Name="HolidayPay" ColumnName="HolidayPay" />
+          <ScalarProperty Name="LeavePay" ColumnName="LeavePay" />
+          <ScalarProperty Name="GrossPay" ColumnName="GrossPay" />
+          <ScalarProperty Name="SSS" ColumnName="SSS" />
+          <ScalarProperty Name="PHIC" ColumnName="PHIC" />
+          <ScalarProperty Name="PagIbig" ColumnName="PagIbig" />
+          <ScalarProperty Name="Tardiness" ColumnName="Tardiness" />
+          <ScalarProperty Name="CashAdvance" ColumnName="CashAdvance" />
+          <ScalarProperty Name="TotalDeduction" ColumnName="TotalDeduction" />
+          <ScalarProperty Name="NetSalary" ColumnName="NetSalary" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PayrollPeriods">
+      <EntityTypeMapping TypeName="PayrollModel.PayrollPeriod">
+        <MappingFragment StoreEntitySet="PayrollPeriod">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PayrollStart" ColumnName="PayrollStart" />
+          <ScalarProperty Name="PayrollEnd" ColumnName="PayrollEnd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SalaryCompensations">
+      <EntityTypeMapping TypeName="PayrollModel.SalaryCompensation">
+        <MappingFragment StoreEntitySet="SalaryCompensation">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Employee" ColumnName="Employee" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="HourlyRate" ColumnName="HourlyRate" />
+          <ScalarProperty Name="OvertimeRate" ColumnName="OvertimeRate" />
+          <ScalarProperty Name="SSS" ColumnName="SSS" />
+          <ScalarProperty Name="PHIC" ColumnName="PHIC" />
+          <ScalarProperty Name="PagIbig" ColumnName="PagIbig" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="PayrollModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

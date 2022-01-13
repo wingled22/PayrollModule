@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PayrollModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Firstname" Type="varchar" MaxLength="50" />
+    <Property Name="Lastname" Type="varchar" MaxLength="50" />
+    <Property Name="Address" Type="varchar" MaxLength="50" />
+    <Property Name="Age" Type="int" />
+    <Property Name="Designation" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Payroll">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Employee" Type="int" />
+    <Property Name="PayrollPeriod" Type="int" />
+    <Property Name="OTHours" Type="int" />
+    <Property Name="OTPay" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="HolidayPay" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="LeavePay" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="GrossPay" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SSS" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="PHIC" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="PagIbig" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Tardiness" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="CashAdvance" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TotalDeduction" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="NetSalary" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="PayrollPeriod">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PayrollStart" Type="date" />
+    <Property Name="PayrollEnd" Type="date" />
+  </EntityType>
+  <EntityType Name="SalaryCompensation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Employee" Type="int" />
+    <Property Name="Salary" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="HourlyRate" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="OvertimeRate" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SSS" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="PHIC" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="PagIbig" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="PayrollModelStoreContainer">
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Payroll" EntityType="Self.Payroll" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PayrollPeriod" EntityType="Self.PayrollPeriod" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SalaryCompensation" EntityType="Self.SalaryCompensation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

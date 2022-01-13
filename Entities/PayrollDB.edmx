@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PayrollModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Firstname" Type="varchar" MaxLength="50" />
+          <Property Name="Lastname" Type="varchar" MaxLength="50" />
+          <Property Name="Address" Type="varchar" MaxLength="50" />
+          <Property Name="Age" Type="int" />
+          <Property Name="Designation" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Payroll">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Employee" Type="int" />
+          <Property Name="PayrollPeriod" Type="int" />
+          <Property Name="OTHours" Type="int" />
+          <Property Name="OTPay" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="HolidayPay" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="LeavePay" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="GrossPay" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="SSS" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="PHIC" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="PagIbig" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Tardiness" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="CashAdvance" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="TotalDeduction" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="NetSalary" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="PayrollPeriod">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PayrollStart" Type="date" />
+          <Property Name="PayrollEnd" Type="date" />
+        </EntityType>
+        <EntityType Name="SalaryCompensation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Employee" Type="int" />
+          <Property Name="Salary" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="HourlyRate" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="OvertimeRate" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="SSS" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="PHIC" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="PagIbig" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="PayrollModelStoreContainer">
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Payroll" EntityType="Self.Payroll" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PayrollPeriod" EntityType="Self.PayrollPeriod" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SalaryCompensation" EntityType="Self.SalaryCompensation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PayrollModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="Designation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Payroll">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Employee" Type="Int32" />
+          <Property Name="PayrollPeriod" Type="Int32" />
+          <Property Name="OTHours" Type="Int32" />
+          <Property Name="OTPay" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="HolidayPay" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="LeavePay" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="GrossPay" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="SSS" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PHIC" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PagIbig" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Tardiness" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CashAdvance" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TotalDeduction" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="NetSalary" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="PayrollPeriod">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PayrollStart" Type="DateTime" Precision="0" />
+          <Property Name="PayrollEnd" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="SalaryCompensation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Employee" Type="Int32" />
+          <Property Name="Salary" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="HourlyRate" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="OvertimeRate" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="SSS" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PHIC" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PagIbig" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="PayrollEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="Payrolls" EntityType="Self.Payroll" />
+          <EntitySet Name="PayrollPeriods" EntityType="Self.PayrollPeriod" />
+          <EntitySet Name="SalaryCompensations" EntityType="Self.SalaryCompensation" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PayrollModelStoreContainer" CdmEntityContainer="PayrollEntities">
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="PayrollModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Payrolls">
+            <EntityTypeMapping TypeName="PayrollModel.Payroll">
+              <MappingFragment StoreEntitySet="Payroll">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Employee" ColumnName="Employee" />
+                <ScalarProperty Name="PayrollPeriod" ColumnName="PayrollPeriod" />
+                <ScalarProperty Name="OTHours" ColumnName="OTHours" />
+                <ScalarProperty Name="OTPay" ColumnName="OTPay" />
+                <ScalarProperty Name="HolidayPay" ColumnName="HolidayPay" />
+                <ScalarProperty Name="LeavePay" ColumnName="LeavePay" />
+                <ScalarProperty Name="GrossPay" ColumnName="GrossPay" />
+                <ScalarProperty Name="SSS" ColumnName="SSS" />
+                <ScalarProperty Name="PHIC" ColumnName="PHIC" />
+                <ScalarProperty Name="PagIbig" ColumnName="PagIbig" />
+                <ScalarProperty Name="Tardiness" ColumnName="Tardiness" />
+                <ScalarProperty Name="CashAdvance" ColumnName="CashAdvance" />
+                <ScalarProperty Name="TotalDeduction" ColumnName="TotalDeduction" />
+                <ScalarProperty Name="NetSalary" ColumnName="NetSalary" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PayrollPeriods">
+            <EntityTypeMapping TypeName="PayrollModel.PayrollPeriod">
+              <MappingFragment StoreEntitySet="PayrollPeriod">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PayrollStart" ColumnName="PayrollStart" />
+                <ScalarProperty Name="PayrollEnd" ColumnName="PayrollEnd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalaryCompensations">
+            <EntityTypeMapping TypeName="PayrollModel.SalaryCompensation">
+              <MappingFragment StoreEntitySet="SalaryCompensation">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Employee" ColumnName="Employee" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="HourlyRate" ColumnName="HourlyRate" />
+                <ScalarProperty Name="OvertimeRate" ColumnName="OvertimeRate" />
+                <ScalarProperty Name="SSS" ColumnName="SSS" />
+                <ScalarProperty Name="PHIC" ColumnName="PHIC" />
+                <ScalarProperty Name="PagIbig" ColumnName="PagIbig" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="PayrollModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

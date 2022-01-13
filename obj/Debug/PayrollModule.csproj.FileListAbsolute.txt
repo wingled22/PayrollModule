@@ -1,0 +1,16 @@
+D:\Career\Freelance Dev\PayrollModule\bin\Debug\PayrollModule.exe.config
+D:\Career\Freelance Dev\PayrollModule\bin\Debug\PayrollModule.exe
+D:\Career\Freelance Dev\PayrollModule\bin\Debug\PayrollModule.pdb
+D:\Career\Freelance Dev\PayrollModule\bin\Debug\EntityFramework.dll
+D:\Career\Freelance Dev\PayrollModule\bin\Debug\EntityFramework.SqlServer.dll
+D:\Career\Freelance Dev\PayrollModule\bin\Debug\EntityFramework.xml
+D:\Career\Freelance Dev\PayrollModule\bin\Debug\EntityFramework.SqlServer.xml
+D:\Career\Freelance Dev\PayrollModule\obj\Debug\PayrollModule.csproj.AssemblyReference.cache
+D:\Career\Freelance Dev\PayrollModule\obj\Debug\PayrollModule.EmployeeForm.resources
+D:\Career\Freelance Dev\PayrollModule\obj\Debug\PayrollModule.Main.resources
+D:\Career\Freelance Dev\PayrollModule\obj\Debug\PayrollModule.Properties.Resources.resources
+D:\Career\Freelance Dev\PayrollModule\obj\Debug\PayrollModule.csproj.GenerateResource.cache
+D:\Career\Freelance Dev\PayrollModule\obj\Debug\PayrollModule.csproj.CoreCompileInputs.cache
+D:\Career\Freelance Dev\PayrollModule\obj\Debug\PayrollModule.csproj.CopyComplete
+D:\Career\Freelance Dev\PayrollModule\obj\Debug\PayrollModule.exe
+D:\Career\Freelance Dev\PayrollModule\obj\Debug\PayrollModule.pdb
