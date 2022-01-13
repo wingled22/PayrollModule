@@ -98,6 +98,7 @@ namespace PayrollModule
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(732, 398);
             this.Name = "Main";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hagnaya Payroll System";
             this.ResumeLayout(false);
 

@@ -67,6 +67,9 @@
     <Compile Include="Entities\Employee.cs">
       <DependentUpon>PayrollDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\GetSalaryAndCompensationWithEmployeeFullname_Result.cs">
+      <DependentUpon>PayrollDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Payroll.cs">
       <DependentUpon>PayrollDB.tt</DependentUpon>
     </Compile>
@@ -102,6 +105,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SalaryAndCompensationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalaryAndCompensationForm.Designer.cs">
+      <DependentUpon>SalaryAndCompensationForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="EmployeeForm.resx">
       <DependentUpon>EmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -118,6 +127,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SalaryAndCompensationForm.resx">
+      <DependentUpon>SalaryAndCompensationForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EntityDeploy Include="Entities\PayrollDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>PayrollDB.Designer.cs</LastGenOutput>
@@ -126,7 +138,7 @@
       <DependentUpon>PayrollDB.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\PayrollModule.Entities.Employee.datasource" />
+    <None Include="Properties\DataSources\PayrollModule.Entities.GetSalaryAndCompensationWithEmployeeFullname_Result.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

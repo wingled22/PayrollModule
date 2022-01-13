@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="PayrollModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="PayrollModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Employee">
           <Key>
             <PropertyRef Name="Id" />
@@ -52,6 +52,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Employee" Type="int" />
           <Property Name="Salary" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="DailyRate" Type="decimal" Precision="18" Scale="2" />
           <Property Name="HourlyRate" Type="decimal" Precision="18" Scale="2" />
           <Property Name="OvertimeRate" Type="decimal" Precision="18" Scale="2" />
           <Property Name="SSS" Type="decimal" Precision="18" Scale="2" />
@@ -66,6 +67,7 @@
           <Property Name="Username" Type="varchar" MaxLength="50" />
           <Property Name="Password" Type="varchar" MaxLength="50" />
         </EntityType>
+        <Function Name="GetSalaryAndCompensationWithEmployeeFullname" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="PayrollModelStoreContainer">
           <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Payroll" EntityType="Self.Payroll" Schema="dbo" store:Type="Tables" />
@@ -73,8 +75,7 @@
           <EntitySet Name="SalaryCompensation" EntityType="Self.SalaryCompensation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PayrollModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -118,19 +119,6 @@
           <Property Name="PayrollStart" Type="DateTime" Precision="0" />
           <Property Name="PayrollEnd" Type="DateTime" Precision="0" />
         </EntityType>
-        <EntityType Name="SalaryCompensation">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Employee" Type="Int32" />
-          <Property Name="Salary" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="HourlyRate" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="OvertimeRate" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="SSS" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="PHIC" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="PagIbig" Type="Decimal" Precision="18" Scale="2" />
-        </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="Id" />
@@ -143,9 +131,36 @@
           <EntitySet Name="Employees" EntityType="Self.Employee" />
           <EntitySet Name="Payrolls" EntityType="Self.Payroll" />
           <EntitySet Name="PayrollPeriods" EntityType="Self.PayrollPeriod" />
-          <EntitySet Name="SalaryCompensations" EntityType="Self.SalaryCompensation" />
           <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="SalaryCompensations" EntityType="PayrollModel.SalaryCompensation" />
+          <FunctionImport Name="GetSalaryAndCompensationWithEmployeeFullname" ReturnType="Collection(PayrollModel.GetSalaryAndCompensationWithEmployeeFullname_Result)" />
         </EntityContainer>
+        <EntityType Name="SalaryCompensation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Employee" Type="Int32" />
+          <Property Name="Salary" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="DailyRate" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="HourlyRate" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="OvertimeRate" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="SSS" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PHIC" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PagIbig" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <ComplexType Name="GetSalaryAndCompensationWithEmployeeFullname_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="Employee" Nullable="true" />
+          <Property Type="String" Name="EmployeeFullName" Nullable="true" MaxLength="101" />
+          <Property Type="Decimal" Name="Salary" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="DailyRate" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="HourlyRate" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="OvertimeRate" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="SSS" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="PHIC" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="PagIbig" Nullable="true" Precision="18" Scale="2" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -195,20 +210,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="SalaryCompensations">
-            <EntityTypeMapping TypeName="PayrollModel.SalaryCompensation">
-              <MappingFragment StoreEntitySet="SalaryCompensation">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Employee" ColumnName="Employee" />
-                <ScalarProperty Name="Salary" ColumnName="Salary" />
-                <ScalarProperty Name="HourlyRate" ColumnName="HourlyRate" />
-                <ScalarProperty Name="OvertimeRate" ColumnName="OvertimeRate" />
-                <ScalarProperty Name="SSS" ColumnName="SSS" />
-                <ScalarProperty Name="PHIC" ColumnName="PHIC" />
-                <ScalarProperty Name="PagIbig" ColumnName="PagIbig" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="PayrollModel.User">
               <MappingFragment StoreEntitySet="User">
@@ -218,6 +219,37 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="SalaryCompensations">
+            <EntityTypeMapping TypeName="PayrollModel.SalaryCompensation">
+              <MappingFragment StoreEntitySet="SalaryCompensation">
+                <ScalarProperty Name="PagIbig" ColumnName="PagIbig" />
+                <ScalarProperty Name="PHIC" ColumnName="PHIC" />
+                <ScalarProperty Name="SSS" ColumnName="SSS" />
+                <ScalarProperty Name="OvertimeRate" ColumnName="OvertimeRate" />
+                <ScalarProperty Name="HourlyRate" ColumnName="HourlyRate" />
+                <ScalarProperty Name="DailyRate" ColumnName="DailyRate" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="Employee" ColumnName="Employee" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetSalaryAndCompensationWithEmployeeFullname" FunctionName="PayrollModel.Store.GetSalaryAndCompensationWithEmployeeFullname">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PayrollModel.GetSalaryAndCompensationWithEmployeeFullname_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Employee" ColumnName="Employee" />
+                <ScalarProperty Name="EmployeeFullName" ColumnName="EmployeeFullName" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="DailyRate" ColumnName="DailyRate" />
+                <ScalarProperty Name="HourlyRate" ColumnName="HourlyRate" />
+                <ScalarProperty Name="OvertimeRate" ColumnName="OvertimeRate" />
+                <ScalarProperty Name="SSS" ColumnName="SSS" />
+                <ScalarProperty Name="PHIC" ColumnName="PHIC" />
+                <ScalarProperty Name="PagIbig" ColumnName="PagIbig" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

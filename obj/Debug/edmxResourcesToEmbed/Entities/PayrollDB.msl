@@ -44,20 +44,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="SalaryCompensations">
-      <EntityTypeMapping TypeName="PayrollModel.SalaryCompensation">
-        <MappingFragment StoreEntitySet="SalaryCompensation">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Employee" ColumnName="Employee" />
-          <ScalarProperty Name="Salary" ColumnName="Salary" />
-          <ScalarProperty Name="HourlyRate" ColumnName="HourlyRate" />
-          <ScalarProperty Name="OvertimeRate" ColumnName="OvertimeRate" />
-          <ScalarProperty Name="SSS" ColumnName="SSS" />
-          <ScalarProperty Name="PHIC" ColumnName="PHIC" />
-          <ScalarProperty Name="PagIbig" ColumnName="PagIbig" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="PayrollModel.User">
         <MappingFragment StoreEntitySet="User">
@@ -67,5 +53,36 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="SalaryCompensations">
+      <EntityTypeMapping TypeName="PayrollModel.SalaryCompensation">
+        <MappingFragment StoreEntitySet="SalaryCompensation">
+          <ScalarProperty Name="PagIbig" ColumnName="PagIbig" />
+          <ScalarProperty Name="PHIC" ColumnName="PHIC" />
+          <ScalarProperty Name="SSS" ColumnName="SSS" />
+          <ScalarProperty Name="OvertimeRate" ColumnName="OvertimeRate" />
+          <ScalarProperty Name="HourlyRate" ColumnName="HourlyRate" />
+          <ScalarProperty Name="DailyRate" ColumnName="DailyRate" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="Employee" ColumnName="Employee" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetSalaryAndCompensationWithEmployeeFullname" FunctionName="PayrollModel.Store.GetSalaryAndCompensationWithEmployeeFullname">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PayrollModel.GetSalaryAndCompensationWithEmployeeFullname_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Employee" ColumnName="Employee" />
+          <ScalarProperty Name="EmployeeFullName" ColumnName="EmployeeFullName" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="DailyRate" ColumnName="DailyRate" />
+          <ScalarProperty Name="HourlyRate" ColumnName="HourlyRate" />
+          <ScalarProperty Name="OvertimeRate" ColumnName="OvertimeRate" />
+          <ScalarProperty Name="SSS" ColumnName="SSS" />
+          <ScalarProperty Name="PHIC" ColumnName="PHIC" />
+          <ScalarProperty Name="PagIbig" ColumnName="PagIbig" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

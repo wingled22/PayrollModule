@@ -13,7 +13,7 @@ namespace PayrollModule
 {
     public partial class EmployeeForm : Form
     {
-        private Entities.PayrollEntities _context = new Entities.PayrollEntities();
+        private PayrollEntities _context = new PayrollEntities();
         private bool isUpdate = false;
         private Employee selectedEmployee;
         public EmployeeForm()
@@ -149,6 +149,7 @@ namespace PayrollModule
             enableFields(false);
             btnUpdate.Enabled = true;
             btnNew.Enabled = true;
+            isUpdate = false;
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -172,6 +173,8 @@ namespace PayrollModule
             btnNew.Enabled = false;
             enableSaveCancel(true);
             enableFields(true);
+            isUpdate = false;
+
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -180,6 +183,7 @@ namespace PayrollModule
             enableSaveCancel(false);
             btnUpdate.Enabled = true;
             btnNew.Enabled = true;
+            isUpdate = false;
         }
     }
 }

@@ -10,12 +10,12 @@
 namespace PayrollModule.Entities
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class SalaryCompensation
+    public partial class GetSalaryAndCompensationWithEmployeeFullname_Result
     {
         public int Id { get; set; }
         public Nullable<int> Employee { get; set; }
+        public string EmployeeFullName { get; set; }
         public Nullable<decimal> Salary { get; set; }
         public Nullable<decimal> DailyRate { get; set; }
         public Nullable<decimal> HourlyRate { get; set; }

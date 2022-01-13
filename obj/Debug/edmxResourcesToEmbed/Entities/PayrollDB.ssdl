@@ -47,6 +47,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Employee" Type="int" />
     <Property Name="Salary" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="DailyRate" Type="decimal" Precision="18" Scale="2" />
     <Property Name="HourlyRate" Type="decimal" Precision="18" Scale="2" />
     <Property Name="OvertimeRate" Type="decimal" Precision="18" Scale="2" />
     <Property Name="SSS" Type="decimal" Precision="18" Scale="2" />
@@ -61,6 +62,7 @@
     <Property Name="Username" Type="varchar" MaxLength="50" />
     <Property Name="Password" Type="varchar" MaxLength="50" />
   </EntityType>
+  <Function Name="GetSalaryAndCompensationWithEmployeeFullname" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="PayrollModelStoreContainer">
     <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Payroll" EntityType="Self.Payroll" Schema="dbo" store:Type="Tables" />

@@ -40,19 +40,6 @@
     <Property Name="PayrollStart" Type="DateTime" Precision="0" />
     <Property Name="PayrollEnd" Type="DateTime" Precision="0" />
   </EntityType>
-  <EntityType Name="SalaryCompensation">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Employee" Type="Int32" />
-    <Property Name="Salary" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="HourlyRate" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="OvertimeRate" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="SSS" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="PHIC" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="PagIbig" Type="Decimal" Precision="18" Scale="2" />
-  </EntityType>
   <EntityType Name="User">
     <Key>
       <PropertyRef Name="Id" />
@@ -65,7 +52,34 @@
     <EntitySet Name="Employees" EntityType="Self.Employee" />
     <EntitySet Name="Payrolls" EntityType="Self.Payroll" />
     <EntitySet Name="PayrollPeriods" EntityType="Self.PayrollPeriod" />
-    <EntitySet Name="SalaryCompensations" EntityType="Self.SalaryCompensation" />
     <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="SalaryCompensations" EntityType="PayrollModel.SalaryCompensation" />
+    <FunctionImport Name="GetSalaryAndCompensationWithEmployeeFullname" ReturnType="Collection(PayrollModel.GetSalaryAndCompensationWithEmployeeFullname_Result)" />
   </EntityContainer>
+  <EntityType Name="SalaryCompensation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Employee" Type="Int32" />
+    <Property Name="Salary" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="DailyRate" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="HourlyRate" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="OvertimeRate" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SSS" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="PHIC" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="PagIbig" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <ComplexType Name="GetSalaryAndCompensationWithEmployeeFullname_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="Employee" Nullable="true" />
+    <Property Type="String" Name="EmployeeFullName" Nullable="true" MaxLength="101" />
+    <Property Type="Decimal" Name="Salary" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="DailyRate" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="HourlyRate" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="OvertimeRate" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="SSS" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="PHIC" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="PagIbig" Nullable="true" Precision="18" Scale="2" />
+  </ComplexType>
 </Schema>

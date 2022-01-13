@@ -12,6 +12,8 @@ namespace PayrollModule.Entities
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class PayrollEntities : DbContext
     {
@@ -28,7 +30,12 @@ namespace PayrollModule.Entities
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<Payroll> Payrolls { get; set; }
         public virtual DbSet<PayrollPeriod> PayrollPeriods { get; set; }
-        public virtual DbSet<SalaryCompensation> SalaryCompensations { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<SalaryCompensation> SalaryCompensations { get; set; }
+    
+        public virtual ObjectResult<GetSalaryAndCompensationWithEmployeeFullname_Result> GetSalaryAndCompensationWithEmployeeFullname()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetSalaryAndCompensationWithEmployeeFullname_Result>("GetSalaryAndCompensationWithEmployeeFullname");
+        }
     }
 }
