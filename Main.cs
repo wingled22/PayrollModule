@@ -31,7 +31,8 @@ namespace PayrollModule
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            var frm = new PayrollForm();
+            frm.ShowDialog();
         }
     }
 }

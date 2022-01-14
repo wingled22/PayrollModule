@@ -15,3 +15,5 @@ D:\Career\Freelance Dev\PayrollModule\obj\Debug\PayrollModule.csproj.CopyComplet
 D:\Career\Freelance Dev\PayrollModule\obj\Debug\PayrollModule.exe
 D:\Career\Freelance Dev\PayrollModule\obj\Debug\PayrollModule.pdb
 D:\Career\Freelance Dev\PayrollModule\obj\Debug\PayrollModule.csproj.AssemblyReference.cache
+D:\Career\Freelance Dev\PayrollModule\obj\Debug\PayrollModule.PayrollForm.resources
+D:\Career\Freelance Dev\PayrollModule\obj\Debug\PayrollModule.PayrollSchedForm.resources

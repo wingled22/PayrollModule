@@ -196,7 +196,6 @@ namespace PayrollModule
             // btnUpdate
             // 
             this.btnUpdate.BackColor = System.Drawing.Color.ForestGreen;
-            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.Location = new System.Drawing.Point(552, 137);
             this.btnUpdate.Name = "btnUpdate";
@@ -209,7 +208,6 @@ namespace PayrollModule
             // btnCancel
             // 
             this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Location = new System.Drawing.Point(758, 137);
             this.btnCancel.Name = "btnCancel";
@@ -222,7 +220,6 @@ namespace PayrollModule
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.ForestGreen;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Location = new System.Drawing.Point(655, 137);
             this.btnSave.Name = "btnSave";
