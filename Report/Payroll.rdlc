@@ -9,34 +9,34 @@
               <Width>1.39583in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1in</Width>
+              <Width>0.84375in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>0.53125in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1in</Width>
+              <Width>0.88542in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1in</Width>
+              <Width>0.94792in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1in</Width>
+              <Width>0.92708in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1in</Width>
+              <Width>0.875in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1in</Width>
+              <Width>0.81251in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1in</Width>
+              <Width>0.86458in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1in</Width>
+              <Width>0.84375in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1in</Width>
+              <Width>0.84375in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>0.9375in</Width>
@@ -933,7 +933,7 @@
         <Top>0.905in</Top>
         <Left>0.11333in</Left>
         <Height>0.5in</Height>
-        <Width>13.72916in</Width>
+        <Width>12.57292in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -947,7 +947,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>SALARY</Value>
+                <Value>PAYROLL</Value>
                 <Style>
                   <FontSize>12pt</FontSize>
                   <FontWeight>SemiBold</FontWeight>
@@ -983,7 +983,9 @@
             <TextRuns>
               <TextRun>
                 <Value>=First(Fields!PayrollStart.Value)</Value>
-                <Style />
+                <Style>
+                  <Format>dd-MMM-yy</Format>
+                </Style>
               </TextRun>
               <TextRun>
                 <Value> - </Value>
@@ -991,7 +993,9 @@
               </TextRun>
               <TextRun>
                 <Value>=First(Fields!PayrollEnd.Value)</Value>
-                <Style />
+                <Style>
+                  <Format>dd-MMM-yy</Format>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style>
@@ -1001,9 +1005,9 @@
         </Paragraphs>
         <rd:DefaultName>Textbox18</rd:DefaultName>
         <Top>0.51958in</Top>
-        <Left>4.45708in</Left>
+        <Left>4.08208in</Left>
         <Height>0.25in</Height>
-        <Width>2.875in</Width>
+        <Width>3.73958in</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -1019,12 +1023,11 @@
     <Height>2in</Height>
     <Style />
   </Body>
-  <Width>14.04167in</Width>
+  <Width>12.77084in</Width>
   <Page>
-    <LeftMargin>1in</LeftMargin>
-    <RightMargin>1in</RightMargin>
-    <TopMargin>1in</TopMargin>
-    <BottomMargin>1in</BottomMargin>
+    <PageHeight>8.5in</PageHeight>
+    <PageWidth>13in</PageWidth>
+    <LeftMargin>0.1in</LeftMargin>
     <Style />
   </Page>
   <AutoRefresh>0</AutoRefresh>

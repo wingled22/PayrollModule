@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PayrollModule.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +13,7 @@ namespace PayrollModule.Report
 {
     public partial class PayrollReport : Form
     {
-
+        private PayrollEntities _context = new PayrollEntities();
         private int payrollPeriodID;
         public PayrollReport()
         {
@@ -26,7 +27,8 @@ namespace PayrollModule.Report
 
         private void PayrollReport_Load(object sender, EventArgs e)
         {
-
+            this.GetPayrollFromPayrollPeriod_ResultBindingSource.DataSource = _context.GetPayrollFromPayrollPeriod(2);
+            this.reportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
             this.reportViewer1.RefreshReport();
         }
     }
