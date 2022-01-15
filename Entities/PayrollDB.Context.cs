@@ -37,5 +37,14 @@ namespace PayrollModule.Entities
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetSalaryAndCompensationWithEmployeeFullname_Result>("GetSalaryAndCompensationWithEmployeeFullname");
         }
+    
+        public virtual ObjectResult<GetPayrollFromPayrollPeriod_Result> GetPayrollFromPayrollPeriod(Nullable<int> payrollPeriodID)
+        {
+            var payrollPeriodIDParameter = payrollPeriodID.HasValue ?
+                new ObjectParameter("PayrollPeriodID", payrollPeriodID) :
+                new ObjectParameter("PayrollPeriodID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetPayrollFromPayrollPeriod_Result>("GetPayrollFromPayrollPeriod", payrollPeriodIDParameter);
+        }
     }
 }

@@ -10,13 +10,14 @@
 namespace PayrollModule.Entities
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Payroll
+    public partial class GetPayrollFromPayrollPeriod_Result
     {
         public int Id { get; set; }
-        public Nullable<int> Employee { get; set; }
+        public int EmployeeId { get; set; }
+        public string EmployeeFullName { get; set; }
         public Nullable<int> PayrollPeriod { get; set; }
+        public Nullable<decimal> Salary { get; set; }
         public Nullable<int> OTHours { get; set; }
         public Nullable<decimal> OTPay { get; set; }
         public Nullable<decimal> HolidayPay { get; set; }
@@ -29,6 +30,7 @@ namespace PayrollModule.Entities
         public Nullable<decimal> CashAdvance { get; set; }
         public Nullable<decimal> TotalDeduction { get; set; }
         public Nullable<decimal> NetSalary { get; set; }
-        public Nullable<decimal> Salary { get; set; }
+        public Nullable<System.DateTime> PayrollStart { get; set; }
+        public Nullable<System.DateTime> PayrollEnd { get; set; }
     }
 }

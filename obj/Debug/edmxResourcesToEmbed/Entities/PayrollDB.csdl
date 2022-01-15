@@ -31,6 +31,7 @@
     <Property Name="CashAdvance" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="TotalDeduction" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="NetSalary" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Salary" Type="Decimal" Precision="18" Scale="2" />
   </EntityType>
   <EntityType Name="PayrollPeriod">
     <Key>
@@ -55,6 +56,9 @@
     <EntitySet Name="Users" EntityType="Self.User" />
     <EntitySet Name="SalaryCompensations" EntityType="PayrollModel.SalaryCompensation" />
     <FunctionImport Name="GetSalaryAndCompensationWithEmployeeFullname" ReturnType="Collection(PayrollModel.GetSalaryAndCompensationWithEmployeeFullname_Result)" />
+    <FunctionImport Name="GetPayrollFromPayrollPeriod" ReturnType="Collection(PayrollModel.GetPayrollFromPayrollPeriod_Result)">
+      <Parameter Name="PayrollPeriodID" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="SalaryCompensation">
     <Key>
@@ -81,5 +85,26 @@
     <Property Type="Decimal" Name="SSS" Nullable="true" Precision="18" Scale="2" />
     <Property Type="Decimal" Name="PHIC" Nullable="true" Precision="18" Scale="2" />
     <Property Type="Decimal" Name="PagIbig" Nullable="true" Precision="18" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="GetPayrollFromPayrollPeriod_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="EmployeeId" Nullable="false" />
+    <Property Type="String" Name="EmployeeFullName" Nullable="true" MaxLength="101" />
+    <Property Type="Int32" Name="PayrollPeriod" Nullable="true" />
+    <Property Type="Decimal" Name="Salary" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="OTHours" Nullable="true" />
+    <Property Type="Decimal" Name="OTPay" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="HolidayPay" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="LeavePay" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="GrossPay" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="SSS" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="PHIC" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="PagIbig" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="Tardiness" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="CashAdvance" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="TotalDeduction" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="NetSalary" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="DateTime" Name="PayrollStart" Nullable="true" />
+    <Property Type="DateTime" Name="PayrollEnd" Nullable="true" />
   </ComplexType>
 </Schema>

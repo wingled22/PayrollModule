@@ -67,6 +67,9 @@
     <Compile Include="Entities\Employee.cs">
       <DependentUpon>PayrollDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\GetPayrollFromPayrollPeriod_Result.cs">
+      <DependentUpon>PayrollDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\GetSalaryAndCompensationWithEmployeeFullname_Result.cs">
       <DependentUpon>PayrollDB.tt</DependentUpon>
     </Compile>
@@ -156,8 +159,7 @@
       <DependentUpon>PayrollDB.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\PayrollModule.Entities.GetSalaryAndCompensationWithEmployeeFullname_Result.datasource" />
-    <None Include="Properties\DataSources\PayrollModule.Entities.PayrollPeriod.datasource" />
+    <None Include="Properties\DataSources\PayrollModule.Entities.GetPayrollFromPayrollPeriod_Result.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

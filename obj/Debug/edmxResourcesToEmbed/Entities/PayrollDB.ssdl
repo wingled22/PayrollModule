@@ -19,6 +19,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Employee" Type="int" />
     <Property Name="PayrollPeriod" Type="int" />
+    <Property Name="Salary" Type="decimal" Precision="18" Scale="2" />
     <Property Name="OTHours" Type="int" />
     <Property Name="OTPay" Type="decimal" Precision="18" Scale="2" />
     <Property Name="HolidayPay" Type="decimal" Precision="18" Scale="2" />
@@ -62,6 +63,9 @@
     <Property Name="Username" Type="varchar" MaxLength="50" />
     <Property Name="Password" Type="varchar" MaxLength="50" />
   </EntityType>
+  <Function Name="GetPayrollFromPayrollPeriod" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PayrollPeriodID" Type="int" Mode="In" />
+  </Function>
   <Function Name="GetSalaryAndCompensationWithEmployeeFullname" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="PayrollModelStoreContainer">
     <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
