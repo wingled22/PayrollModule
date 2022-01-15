@@ -17,3 +17,6 @@ D:\Career\Freelance Dev\PayrollModule\obj\Debug\PayrollModule.csproj.CoreCompile
 D:\Career\Freelance Dev\PayrollModule\obj\Debug\PayrollModule.csproj.CopyComplete
 D:\Career\Freelance Dev\PayrollModule\obj\Debug\PayrollModule.exe
 D:\Career\Freelance Dev\PayrollModule\obj\Debug\PayrollModule.pdb
+D:\Career\Freelance Dev\PayrollModule\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+D:\Career\Freelance Dev\PayrollModule\obj\Debug\RdlCompile.cache
+D:\Career\Freelance Dev\PayrollModule\obj\Debug\RdlCompile.compiled
