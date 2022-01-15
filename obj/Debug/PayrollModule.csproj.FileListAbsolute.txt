@@ -19,7 +19,6 @@ D:\Career\Freelance Dev\PayrollModule\obj\Debug\PayrollModule.exe
 D:\Career\Freelance Dev\PayrollModule\obj\Debug\PayrollModule.pdb
 D:\Career\Freelance Dev\PayrollModule\obj\Debug\RdlCompile.cache
 D:\Career\Freelance Dev\PayrollModule\obj\Debug\RdlCompile.compiled
-D:\Career\Freelance Dev\PayrollModule\obj\Debug\PayrollModule.Form1.resources
 D:\Career\Freelance Dev\PayrollModule\obj\Debug\PayrollModule.Report.PayrollReport.resources
 D:\Career\Freelance Dev\PayrollModule\bin\Debug\Microsoft.ReportViewer.WinForms.dll
 D:\Career\Freelance Dev\PayrollModule\bin\Debug\Microsoft.ReportViewer.Common.dll
@@ -80,3 +79,4 @@ D:\Career\Freelance Dev\PayrollModule\bin\Debug\ru\Microsoft.ReportViewer.WinFor
 D:\Career\Freelance Dev\PayrollModule\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
 D:\Career\Freelance Dev\PayrollModule\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
 D:\Career\Freelance Dev\PayrollModule\obj\Debug\PayrollModule.exe.licenses
+D:\Career\Freelance Dev\PayrollModule\obj\Debug\PayrollModule.Login.resources

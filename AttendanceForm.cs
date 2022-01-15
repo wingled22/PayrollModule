@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PayrollModule
 {
-    public partial class Form1 : Form
+    public partial class AttendanceForm : Form
     {
-        public Form1()
+        public AttendanceForm()
         {
             InitializeComponent();
         }
