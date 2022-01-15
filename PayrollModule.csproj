@@ -42,6 +42,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportViewer.WinForms.v12.12.0.0.1\lib\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -58,9 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EmployeeForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="EmployeeForm.cs" />
     <Compile Include="EmployeeForm.Designer.cs">
       <DependentUpon>EmployeeForm.cs</DependentUpon>
     </Compile>
@@ -100,29 +101,21 @@
     <Compile Include="Entities\User.cs">
       <DependentUpon>PayrollDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Main.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Main.cs" />
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="PayrollForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="PayrollForm.cs" />
     <Compile Include="PayrollForm.Designer.cs">
       <DependentUpon>PayrollForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PayrollSchedForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="PayrollSchedForm.cs" />
     <Compile Include="PayrollSchedForm.Designer.cs">
       <DependentUpon>PayrollSchedForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SalaryAndCompensationForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="SalaryAndCompensationForm.cs" />
     <Compile Include="SalaryAndCompensationForm.Designer.cs">
       <DependentUpon>SalaryAndCompensationForm.cs</DependentUpon>
     </Compile>

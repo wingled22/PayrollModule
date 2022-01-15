@@ -40,18 +40,18 @@ namespace PayrollModule
             if (payroll != null)
             {
                 var s = _context.Payrolls.Where(q => q.Id == payroll.Id).FirstOrDefault();
-                txtSalary.Text = s.Salary.HasValue ? "" : s.Salary.ToString();
 
-                txtSalary.Text = s.Salary.HasValue ? "" : s.Salary.ToString();
-                txtOTHours.Text = s.OTHours.HasValue ? "" : s.OTHours.ToString();
-                txtOTPay.Text = s.OTPay.HasValue ? "" : s.OTPay.ToString();
-                txtHolidayPay.Text = s.HolidayPay.HasValue ? "" : s.HolidayPay.ToString();
-                txtLeavePay.Text = s.LeavePay.HasValue ? "" : s.LeavePay.ToString();
-                txtSSS.Text = s.SSS.HasValue ? "" : s.SSS.ToString();
-                txtPhilhealth.Text = s.PHIC.HasValue ? "" : s.PHIC.ToString();
-                txtPagibig.Text = s.PagIbig.HasValue ? "" : s.PagIbig.ToString();
-                txtTardiness.Text = s.Tardiness.HasValue ? "" : s.Tardiness.ToString();
-                txtCashAdvance.Text = s.CashAdvance.HasValue ? ""  : s.CashAdvance.ToString();
+                txtSalary.Text = s.Salary.HasValue ? s.Salary.ToString() : "";
+                txtSalary.Text = s.Salary.HasValue ? s.Salary.ToString() : "";
+                txtOTHours.Text = s.OTHours.HasValue ? s.OTHours.ToString() : "";
+                txtOTPay.Text = s.OTPay.HasValue ? s.OTPay.ToString() : "";
+                txtHolidayPay.Text = s.HolidayPay.HasValue ? s.HolidayPay.ToString() : "";
+                txtLeavePay.Text = s.LeavePay.HasValue ? s.LeavePay.ToString() : "";
+                txtSSS.Text = s.SSS.HasValue ? s.SSS.ToString() : "";
+                txtPhilhealth.Text = s.PHIC.HasValue ? s.PHIC.ToString() : "";
+                txtPagibig.Text = s.PagIbig.HasValue ? s.PagIbig.ToString() : "";
+                txtTardiness.Text = s.Tardiness.HasValue ? s.Tardiness.ToString() : "";
+                txtCashAdvance.Text = s.CashAdvance.HasValue ? s.CashAdvance.ToString() : "";
 
                 var emp = _context.Employees.Where(q => q.Id == s.Employee).FirstOrDefault();
                 lblName.Text = emp.Firstname + " " + emp.Lastname;
