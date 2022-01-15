@@ -365,5 +365,11 @@ namespace PayrollModule
         {
             calculatePayroll();
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Report.PayrollReport frm = new Report.PayrollReport(payrollPeriod.Id);
+            frm.ShowDialog();
+        }
     }
 }

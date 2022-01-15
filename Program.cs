@@ -16,7 +16,7 @@ namespace PayrollModule
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Report.PayrollReport());
+            Application.Run(new Main());
         }
     }
 }

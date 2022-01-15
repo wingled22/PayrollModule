@@ -22,12 +22,12 @@ namespace PayrollModule.Report
 
         public PayrollReport(int payrollperiodid) : this()
         {
-            payrollPeriodID = payrollPeriodID;
+            payrollPeriodID = payrollperiodid;
         }
 
         private void PayrollReport_Load(object sender, EventArgs e)
         {
-            this.GetPayrollFromPayrollPeriod_ResultBindingSource.DataSource = _context.GetPayrollFromPayrollPeriod(2);
+            this.GetPayrollFromPayrollPeriod_ResultBindingSource.DataSource = _context.GetPayrollFromPayrollPeriod(payrollPeriodID);
             this.reportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
             this.reportViewer1.RefreshReport();
         }
