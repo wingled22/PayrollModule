@@ -89,6 +89,20 @@ namespace PayrollModule
                         tempPayroll.Employee = employee.Id;
                         tempPayroll.PayrollPeriod = payrollPeriod.Id;
 
+                        var employeeSalaryCompensation = _context.SalaryCompensations.Where(q => q.Employee == employee.Id).FirstOrDefault();
+
+                        if (employeeSalaryCompensation.Salary.HasValue)
+                            tempPayroll.Salary = employeeSalaryCompensation.Salary / 2;
+
+                        if (employeeSalaryCompensation.SSS.HasValue)
+                            tempPayroll.SSS = employeeSalaryCompensation.SSS / 2;
+
+                        if (employeeSalaryCompensation.PHIC.HasValue)
+                            tempPayroll.PHIC = employeeSalaryCompensation.PHIC / 2;
+
+                        if (employeeSalaryCompensation.PagIbig.HasValue)
+                            tempPayroll.PagIbig = employeeSalaryCompensation.PagIbig / 2;
+
                         payroll.Add(tempPayroll);
                     }
 
