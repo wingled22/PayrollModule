@@ -32,6 +32,7 @@ namespace PayrollModule.Entities
         public virtual DbSet<PayrollPeriod> PayrollPeriods { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<SalaryCompensation> SalaryCompensations { get; set; }
+        public virtual DbSet<Atttendance> Atttendances { get; set; }
     
         public virtual ObjectResult<GetSalaryAndCompensationWithEmployeeFullname_Result> GetSalaryAndCompensationWithEmployeeFullname()
         {

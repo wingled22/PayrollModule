@@ -74,6 +74,7 @@ namespace PayrollModule
                 _context.PayrollPeriods.Add(payrollPeriod);
                 _context.SaveChanges();
 
+
                 //create the payroll of the active employee
                 List<Employee> employees = _context.Employees.Where(q => q.Status == "Active").ToList();
                 

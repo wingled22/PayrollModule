@@ -80,3 +80,4 @@ D:\Career\Freelance Dev\PayrollModule\bin\Debug\zh-CHS\Microsoft.ReportViewer.Wi
 D:\Career\Freelance Dev\PayrollModule\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
 D:\Career\Freelance Dev\PayrollModule\obj\Debug\PayrollModule.exe.licenses
 D:\Career\Freelance Dev\PayrollModule\obj\Debug\PayrollModule.Login.resources
+D:\Career\Freelance Dev\PayrollModule\obj\Debug\PayrollModule.AttendanceForm.resources

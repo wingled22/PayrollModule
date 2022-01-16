@@ -26,7 +26,10 @@ namespace PayrollModule
 
             var user = _context.Users.Where(q => q.Username == username && q.Password == password).FirstOrDefault();
 
-            if(user != null)
+            //_context.[table asa nimo gusto mangita ug data].where(q => q.Field).ToList();
+            //_context.[table asa nimo gusto mangita ug data].where(q => q.Field).FirstOrDefault();
+
+            if (user != null)
             {
                 var frm = new Main();
                 frm.ShowDialog();
@@ -39,6 +42,11 @@ namespace PayrollModule
                 txtUsername.Text = "";
                 MessageBox.Show("User name and password is incorrect");
             }
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

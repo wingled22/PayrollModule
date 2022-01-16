@@ -88,6 +88,9 @@
     <Compile Include="EmployeeForm.Designer.cs">
       <DependentUpon>EmployeeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Atttendance.cs">
+      <DependentUpon>PayrollDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Employee.cs">
       <DependentUpon>PayrollDB.tt</DependentUpon>
     </Compile>
@@ -208,6 +211,7 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\PayrollModule.Entities.GetPayrollFromPayrollPeriod_Result.datasource" />
+    <None Include="Properties\DataSources\PayrollModule.Entities.User.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

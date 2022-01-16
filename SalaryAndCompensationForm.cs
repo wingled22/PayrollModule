@@ -41,7 +41,10 @@ namespace PayrollModule
                 txtPagIbig.Text = s.PagIbig.HasValue ? "" : s.PagIbig.ToString();
 
                 var emp = _context.Employees.Where(q => q.Id == s.Employee).FirstOrDefault();
-                lblName.Text = emp.Firstname + " " + emp.Lastname;
+                if(emp != null)
+                {
+                    lblName.Text = emp.Firstname + " " + emp.Lastname;
+                }
             }
         }
 
@@ -108,7 +111,6 @@ namespace PayrollModule
                 MessageBox.Show(message);
 
                 getSalaryAndCompensationWithEmployeeFullnameResultBindingSource.DataSource = _context.GetSalaryAndCompensationWithEmployeeFullname().OrderByDescending(q => q.Id);
-
 
             }
             enableSaveCancel(false);

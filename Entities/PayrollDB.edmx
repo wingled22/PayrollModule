@@ -5,6 +5,16 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="PayrollModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Atttendance">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeID" Type="int" />
+          <Property Name="EmployeeName" Type="varchar" MaxLength="100" />
+          <Property Name="TimeIn" Type="datetime" />
+          <Property Name="TimeOut" Type="datetime" />
+        </EntityType>
         <EntityType Name="Employee">
           <Key>
             <PropertyRef Name="Id" />
@@ -73,6 +83,7 @@
         </Function>
         <Function Name="GetSalaryAndCompensationWithEmployeeFullname" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="PayrollModelStoreContainer">
+          <EntitySet Name="Atttendance" EntityType="Self.Atttendance" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Payroll" EntityType="Self.Payroll" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PayrollPeriod" EntityType="Self.PayrollPeriod" Schema="dbo" store:Type="Tables" />
@@ -140,8 +151,9 @@
           <EntitySet Name="SalaryCompensations" EntityType="PayrollModel.SalaryCompensation" />
           <FunctionImport Name="GetSalaryAndCompensationWithEmployeeFullname" ReturnType="Collection(PayrollModel.GetSalaryAndCompensationWithEmployeeFullname_Result)" />
           <FunctionImport Name="GetPayrollFromPayrollPeriod" ReturnType="Collection(PayrollModel.GetPayrollFromPayrollPeriod_Result)">
-            <Parameter Name="PayrollPeriodID" Mode="In" Type="Int32" />
+          <Parameter Name="PayrollPeriodID" Mode="In" Type="Int32" />
           </FunctionImport>
+          <EntitySet Name="Atttendances" EntityType="PayrollModel.Atttendance" />
         </EntityContainer>
         <EntityType Name="SalaryCompensation">
           <Key>
@@ -190,6 +202,16 @@
           <Property Type="DateTime" Name="PayrollStart" Nullable="true" />
           <Property Type="DateTime" Name="PayrollEnd" Nullable="true" />
         </ComplexType>
+        <EntityType Name="Atttendance">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeID" Type="Int32" />
+          <Property Name="EmployeeName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TimeIn" Type="DateTime" Precision="3" />
+          <Property Name="TimeOut" Type="DateTime" Precision="3" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -305,6 +327,17 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="Atttendances">
+            <EntityTypeMapping TypeName="PayrollModel.Atttendance">
+              <MappingFragment StoreEntitySet="Atttendance">
+                <ScalarProperty Name="TimeOut" ColumnName="TimeOut" />
+                <ScalarProperty Name="TimeIn" ColumnName="TimeIn" />
+                <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

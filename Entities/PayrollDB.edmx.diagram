@@ -4,12 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="939391c2fb9441b682684a39717a26d5" Name="Diagram1">
+      <Diagram DiagramId="939391c2fb9441b682684a39717a26d5" Name="Diagram1" ZoomLevel="64">
         <EntityTypeShape EntityType="PayrollModel.Employee" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="PayrollModel.Payroll" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="PayrollModel.PayrollPeriod" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="PayrollModel.User" Width="1.5" PointX="0.625" PointY="3.625" IsExpanded="true" />
         <EntityTypeShape EntityType="PayrollModel.SalaryCompensation" Width="1.5" PointX="4.75" PointY="2.625" />
+        <EntityTypeShape EntityType="PayrollModel.Atttendance" Width="1.5" PointX="6.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

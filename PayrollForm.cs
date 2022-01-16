@@ -54,7 +54,10 @@ namespace PayrollModule
                 txtCashAdvance.Text = s.CashAdvance.HasValue ? s.CashAdvance.ToString() : "";
 
                 var emp = _context.Employees.Where(q => q.Id == s.Employee).FirstOrDefault();
-                lblName.Text = emp.Firstname + " " + emp.Lastname;
+                if(emp != null)
+                {
+                    lblName.Text = emp.Firstname + " " + emp.Lastname;
+                }
             }
         }
         private void enableFields(bool b)
@@ -368,8 +371,12 @@ namespace PayrollModule
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            Report.PayrollReport frm = new Report.PayrollReport(payrollPeriod.Id);
-            frm.ShowDialog();
+            if (payrollPeriod != null)
+            {
+                Report.PayrollReport frm = new Report.PayrollReport(payrollPeriod.Id);
+                frm.ShowDialog();
+            }
+
         }
     }
 }

@@ -23,6 +23,7 @@ namespace PayrollModule
 
         private void EmployeeForm_Load(object sender, EventArgs e)
         {
+
             employeeBindingSource.DataSource = _context.Employees.ToList();
             enableSaveCancel(false);
             enableFields(false);
@@ -98,12 +99,15 @@ namespace PayrollModule
             {
                 //create new employee object
                 Employee employee = new Employee();
+
                 //populate value from textfields to employee object
+
                 employee.Firstname = string.IsNullOrEmpty(txtFname.Text) ? null : txtFname.Text.Trim();
                 employee.Lastname = string.IsNullOrEmpty(txtLname.Text) ? null : txtLname.Text.Trim();
                 employee.Address = string.IsNullOrEmpty(txtAddress.Text) ? null : txtAddress.Text.Trim();
                 employee.Designation = string.IsNullOrEmpty(cbDesignation.Text) ? null : cbDesignation.Text.Trim();
                 employee.Status = string.IsNullOrEmpty(cbStats.Text) ? null : cbStats.Text.Trim();
+                
                 if (string.IsNullOrEmpty(txtAge.Text.Trim()))
                     employee.Age = null;
                 else
@@ -112,22 +116,37 @@ namespace PayrollModule
                 //add to Db
                 _context.Employees.Add(employee);
                 _context.SaveChanges();
+                //done saving employee data
+
+
 
                 //Create Salary and compensation for the new added employee
                 SalaryCompensation salaryCompensation = new SalaryCompensation();
                 salaryCompensation.Employee = employee.Id;
+
                 _context.SalaryCompensations.Add(salaryCompensation);
                 _context.SaveChanges();
 
-                string message = "Employee successfully added";
-                MessageBox.Show(message);
+
+                MessageBox.Show("Employee successfully added");
 
                 //Refresh data in datagrid
                 employeeBindingSource.DataSource = _context.Employees.ToList();
+
+                //User user = new User();
+                //user.Username = "win";
+                //user.Password = "del";
+
+                //_context.Users.Add(user);
+                //_context.SaveChanges();
+
             }
             else
             {
+                //get data from database
                 Employee employee = _context.Employees.Where(q => q.Id == selectedEmployee.Id).FirstOrDefault();
+
+                //
                 employee.Firstname = string.IsNullOrEmpty(txtFname.Text) ? null : txtFname.Text.Trim();
                 employee.Lastname = string.IsNullOrEmpty(txtLname.Text) ? null : txtLname.Text.Trim();
                 employee.Address = string.IsNullOrEmpty(txtAddress.Text) ? null : txtAddress.Text.Trim();
@@ -144,7 +163,14 @@ namespace PayrollModule
                 MessageBox.Show(message);
                 //Refresh data in datagrid
                 employeeBindingSource.DataSource = _context.Employees.ToList();
+
+                //entity framework || ado.net
+
+                //to delete employee
+                //_context.Employees.Remove(employee);
+                //_context.SaveChanges();
             }
+
             enableSaveCancel(false);
             enableFields(false);
             btnUpdate.Enabled = true;
